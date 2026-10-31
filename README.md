@@ -4,11 +4,12 @@ Welcome to the official web platform for **Darkness Within Azeroth Adventures**,
 
 ## 🌌 Overview
 
-This website serves as the central hub for our guild's community, featuring media from our in game activities.
+This website serves as the central hub for our guild's community, featuring media, announcements, membership application forms, and legal/privacy documentation.
 
 - **Guild**: Darkness Within
 - **Game**: World of Warcraft
-- **Website Purpose**: Guild showcase.
+- **Live Website**: [https://darkness-within.github.io](https://darkness-within.github.io)
+- **Website Purpose**: Guild showcase, recruitment, media gallery, and legal information.
 
 ---
 
