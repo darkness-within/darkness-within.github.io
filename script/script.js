@@ -159,3 +159,13 @@ document.addEventListener("DOMContentLoaded", () => {
     parent.appendChild(particle);
   }
 });
+
+if ('scrollRestoration' in history) {
+        // Εξαναγκάζει τον browser να μην θυμάται τη θέση κύλισης στην ανανέωση
+        history.scrollRestoration = 'manual';
+    }
+    
+    // Εναλλακτικά, αν θες να πηγαίνει πάντα στην κορυφή με το reload:
+    window.addEventListener('beforeunload', function () {
+        window.scrollTo(0, 0);
+});
