@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Υπόδειξη της θέσης του sitemap
-Sitemap: 
+Sitemap: https://darkness-within.github.io/sitemap.xml
