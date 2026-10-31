@@ -1,0 +1,380 @@
+/* ==========================================
+   ORIGINS PAGE PHOTO LAYOUTS & HOVER EFFECTS
+   ========================================== */
+
+.origins-container {
+  max-width: 1400px;
+  margin: 120px auto 60px auto; /* Αφήνει χώρο για το fixed header */
+  padding: 0 30px;
+}
+
+.lore-section {
+  margin-bottom: 80px;
+}
+
+.lore-section h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  color: var(--gold-color, #c89b3c);
+  text-align: center;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.section-desc {
+  text-align: center;
+  color: #a0a0a0;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+}
+
+/* --- ΚΟΙΝΗ ΔΟΜΗ ΚΑΡΤΑΣ & HOVER ANIMATION --- */
+.lore-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(200, 155, 60, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  background-color: #0b0e14;
+  cursor: pointer;
+  aspect-ratio: 16 / 10; /* Σταθερή αναλογία αν δεν οριστεί άλλο span */
+}
+
+.lore-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Το Overlay που εμφανίζεται στο Hover πάνω στην εικόνα */
+.photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top, 
+    rgba(5, 7, 10, 0.95) 0%, 
+    rgba(5, 7, 10, 0.7) 50%, 
+    rgba(5, 7, 10, 0.1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Hover triggers */
+.lore-photo-card:hover img {
+  transform: scale(1.08); /* Ζουμ στην εικόνα */
+}
+
+.lore-photo-card:hover .photo-overlay {
+  opacity: 1;
+  transform: translateY(0); /* Φέρνει το κείμενο στη θέση του πάνω στην εικόνα */
+}
+
+/* Τίτλος & Υπότιτλος */
+.photo-title {
+  font-family: 'Cinzel', serif;
+  color: #f3e5ab;
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.photo-subtitle {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+/* ==========================================
+   CUSTOM SECTION PHOTO LAYOUTS (Με σωστά κενά)
+   ========================================== */
+
+.lore-section-grid {
+  display: grid;
+  gap: 25px; /* Ενιαίο, καθαρό κενό παντού (οριζόντια και κάθετα) */
+}
+
+/* --- LAYOUT 1: Ζιγκ-Ζαγκ Asymmetric (6 φωτογραφίες) --- */
+.layout-zigzag {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(200px, auto); /* Δυναμικό ύψος σειρών, προσαρμόζεται στο περιεχόμενο */
+  gap: 25px;
+}
+
+/* Αφήνουμε τις 2, 3, 4, 6 να έχουν την κανονική τους αναλογία (aspect-ratio) */
+.layout-zigzag .lore-photo-card:nth-child(2),
+.layout-zigzag .lore-photo-card:nth-child(3),
+.layout-zigzag .lore-photo-card:nth-child(4),
+.layout-zigzag .lore-photo-card:nth-child(6) {
+  aspect-ratio: 16 / 10 !important;
+  height: auto;
+}
+
+/* 1η Εικόνα: Στήλη 1, πιάνει 2 σειρές (Μεγάλη επάνω αριστερά) */
+.layout-zigzag .lore-photo-card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  aspect-ratio: unset !important;
+  height: 100%;
+}
+
+/* 2η Εικόνα: Στήλη 2, Σειρά 1 */
+.layout-zigzag .lore-photo-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* 3η Εικόνα: Στήλη 2, Σειρά 2 */
+.layout-zigzag .lore-photo-card:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* 4η Εικόνα: Στήλη 1, Σειρά 3 */
+.layout-zigzag .lore-photo-card:nth-child(4) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+/* 5η Εικόνα: Στήλη 2, πιάνει 2 σειρές (Μεγάλη κάτω δεξιά, σειρές 3 και 4) */
+.layout-zigzag .lore-photo-card:nth-child(5) {
+  grid-column: 2;
+  grid-row: 3 / span 2;
+  aspect-ratio: unset !important;
+  height: 100%;
+}
+
+/* 6η Εικόνα: Στήλη 1, Σειρά 4 */
+.layout-zigzag .lore-photo-card:nth-child(6) {
+  grid-column: 1;
+  grid-row: 4;
+}
+
+
+/* --- LAYOUT 2: Κλασικό Τετράγωνο / Grid (4 φωτογραφίες) --- */
+.layout-quad {
+  grid-template-columns: repeat(2, 1fr);
+}
+.layout-quad .lore-photo-card {
+  aspect-ratio: 16 / 10;
+}
+
+
+/* --- LAYOUT 3: Columns Mix (3 Στήλες - Ακριβής Διάταξη) --- */
+.layout-columns-mix {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+  gap: 25px;
+}
+
+/* Ακύρωση του aspect-ratio για να μπορούν οι 1, 3, 4 να απλωθούν σε ύψος */
+.layout-columns-mix .lore-photo-card {
+  aspect-ratio: unset !important;
+  width: 100%;
+  height: 100%;
+}
+
+/* 1η Εικόνα: Στήλη 1, πιάνει 2 σειρές κάθετα */
+.layout-columns-mix .lore-photo-card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+/* 2η Εικόνα: Στήλη 2, Σειρά 1 */
+.layout-columns-mix .lore-photo-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* 3η Εικόνα: Στήλη 2, πιάνει 2 σειρές κάθετα (ξεκινάει από τη σειρά 2) */
+.layout-columns-mix .lore-photo-card:nth-child(3) {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+}
+
+/* 4η Εικόνα: Στήλη 3, πιάνει 2 σειρές κάθετα */
+.layout-columns-mix .lore-photo-card:nth-child(4) {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+/* 5η Εικόνα: Στήλη 1, Κάτω (Σειρά 3) */
+.layout-columns-mix .lore-photo-card:nth-child(5) {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+/* 6η Εικόνα: Στήλη 3, Κάτω (Σειρά 3) */
+.layout-columns-mix .lore-photo-card:nth-child(6) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+
+/* ==========================================
+   RESPONSIVE (Κινητά / Tablets)
+   ========================================== */
+@media (max-width: 900px) {
+  .lore-section-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto !important;
+  }
+  .lore-section-grid .lore-photo-card {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+}
+
+/* ==========================================
+   ΝΕΑ CUSTOM LAYOUTS (Πρόσθετες επιλογές)
+   ========================================== */
+
+/* --- LAYOUT 4: Asymmetric Shift (5 Φωτογραφίες) ---
+   - 1 μεγάλη οριζόντια κάρτα επάνω (πιάνει όλο το πλάτος)
+   - 4 μικρότερες κάρτες από κάτω σε 2 στήλες */
+.layout-asymmetric-shift {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+}
+.layout-asymmetric-shift .lore-photo-card:nth-child(1) {
+  grid-column: span 2; /* Πιάνει και τις 2 στήλες επάνω */
+}
+
+
+/* --- LAYOUT 5: Diagonal Focus (5 Φωτογραφίες) ---
+   - 3 στήλες, με έξυπνη κατανομή για διαγώνια αίσθηση */
+.layout-diagonal-focus {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+}
+.layout-diagonal-focus .lore-photo-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2; /* Μεγάλο τετράγωνο αρχής */
+}
+.layout-diagonal-focus .lore-photo-card:nth-child(4) {
+  grid-column: span 2; /* Κάτω μεγάλη κάρτα */
+}
+
+
+/* --- LAYOUT 6: Feature Wall (6 Φωτογραφίες) --- */
+.layout-feature-wall {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 200px 200px 200px; /* 3 καθορισμένες σειρές */
+  gap: 25px;
+}
+
+/* Γενικός κανόνας για να απλώνονται σωστά οι κάρτες που κάνουν span */
+.layout-feature-wall .lore-photo-card {
+  aspect-ratio: unset !important;
+  height: 100%;
+}
+
+/* 1η Εικόνα: Στήλη 1, Σειρά 1 */
+.layout-feature-wall .lore-photo-card:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* 2η Εικόνα: Στήλη 2, Σειρά 1 */
+.layout-feature-wall .lore-photo-card:nth-child(2) {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+/* 3η Εικόνα: Στήλη 3, Σειρά 1 */
+.layout-feature-wall .lore-photo-card:nth-child(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* 4η Εικόνα: Στήλη 2, Σειρά 3 (Κάτω στη μέση) */
+.layout-feature-wall .lore-photo-card:nth-child(4) {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* 5η Εικόνα: Στήλη 3, Σειρές 2 και 3 (Δεξιά, ψηλή) */
+.layout-feature-wall .lore-photo-card:nth-child(5) {
+  grid-column: 3;
+  grid-row: 2 / span 2;
+}
+
+/* 6η Εικόνα: Στήλη 1, Σειρές 2 και 3 (Αριστερά, ψηλή) */
+.layout-feature-wall .lore-photo-card:nth-child(6) {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+}
+
+/* ==========================================
+   ΕΠΙΠΛΕΟΝ CUSTOM LAYOUTS (Για έως 51+ φωτογραφίες)
+   ========================================== */
+
+/* --- LAYOUT 7: Mosaic Hero (7 Φωτογραφίες) ---
+   - Ιδανικό για ενότητες με πολλές φωτογραφίες και έμφαση σε μια κεντρική */
+.layout-mosaic-hero {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(190px, auto);
+}
+.layout-mosaic-hero .lore-photo-card:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2; /* Μεγάλη κεντρική/αριστερή κάρτα */
+}
+
+
+/* --- LAYOUT 8: Asymmetric Stagger (5 Φωτογραφίες) ---
+   - 1η σειρά: 3 μικρές φωτογραφίες
+   - 2η σειρά: 1 μεγάλη αριστερά (span 2) + 2 μικρές δεξιά */
+.layout-asymmetric-stagger {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(180px, auto);
+}
+
+/* 1η, 2η, 3η Φωτογραφία: Μπαίνουν κανονικά στην 1η σειρά (1 ανά στήλη) */
+.layout-asymmetric-stagger .lore-photo-card:nth-child(1),
+.layout-asymmetric-stagger .lore-photo-card:nth-child(2),
+.layout-asymmetric-stagger .lore-photo-card:nth-child(3) {
+  grid-column: span 1;
+  grid-row: 1;
+}
+
+/* 4η Φωτογραφία: Η μεγάλη αριστερά (πιάνει τις στήλες 1 και 2, και τις σειρές 1 και 2 κάθετα) */
+.layout-asymmetric-stagger .lore-photo-card:nth-child(4) {
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 2;
+}
+
+/* 5η Φωτογραφία: Η μικρή δεξιά (στην 3η στήλη, στη 2η σειρά) */
+.layout-asymmetric-stagger .lore-photo-card:nth-child(5) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+
+/* --- LAYOUT 9: Quad Plus Banner (5 Φωτογραφίες) ---
+   - 4 κάρτες σε κλασικό 2x2 επάνω και μια μεγάλη panoramic κάρτα κάτω */
+.layout-quad-plus {
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(210px, auto);
+}
+.layout-quad-plus .lore-photo-card:nth-last-child(1) {
+  grid-column: span 2; /* Η τελευταία φωτογραφία πιάνει ολόκληρο το πλάτος */
+}
+
+.photo-overlay {
+  pointer-events: none; /* Επιτρέπει στα κλικ να "περνούν" μέσα από το overlay */
+}

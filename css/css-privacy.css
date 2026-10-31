@@ -1,0 +1,157 @@
+/* ==========================================
+   Custom Font Definition
+   ========================================== */
+@font-face {
+    font-family: 'Goodmountain';
+    src: url('../files/Goodmountain-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================
+   CSS Variables (Theme & Settings)
+   ========================================== */
+:root {
+    --bg-main: #0b0c10;
+    --bg-card: #1f2833;
+    --text-main: #c5c6c7;
+    --text-bright: #ffffff;
+    --text-muted: #666666;
+    
+    --accent-primary: #66fcf1;
+    --accent-secondary: #45a29e;
+    
+    --border-color: rgba(102, 252, 241, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+
+    --font-family: 'Goodmountain', sans-serif;
+    --container-max-width: 900px;
+    --border-radius: 8px;
+}
+
+/* ==========================================
+   Reset & Base Styles
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    padding: 40px 20px;
+    margin-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, li {
+    font-family: var(--font-family);
+}
+
+strong, b {
+    font-family: var(--font-family);
+    font-weight: normal !important;
+    color: var(--accent-primary) !important;
+}
+
+a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   Layout Container
+   ========================================== */
+.legal-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Απόσταση μεταξύ των sections */
+}
+
+/* ==========================================
+   Header Section
+   ========================================== */
+.legal-header {
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--bg-card);
+    padding-bottom: 20px;
+}
+
+.legal-header h1 {
+    color: var(--accent-primary);
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.legal-header .subtitle {
+    color: var(--accent-secondary);
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+/* ==========================================
+   Content Cards (Pure CSS Dynamic Height)
+   ========================================== */
+.legal-card {
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border-left: 4px solid var(--accent-primary);
+    
+    /* Εδώ διασφαλίζουμε ότι δεν υπάρχει κανένα σταθερό ύψος */
+    height: auto;
+    min-height: 0;
+}
+
+.legal-card h2 {
+    color: var(--accent-primary);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.legal-card h3 {
+    color: var(--accent-secondary);
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.legal-card p {
+    margin-bottom: 12px;
+}
+
+.legal-card ul {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.legal-card li {
+    margin-bottom: 6px;
+}
+
+/* ==========================================
+   Footer Section
+   ========================================== */
+.legal-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
