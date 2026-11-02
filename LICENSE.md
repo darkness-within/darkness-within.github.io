@@ -41,3 +41,7 @@ You may not:
 - Use any part of this repository for public or commercial templates.
 - Re-host or mirror the website assets without authorization.
 - Claim ownership over any code, media, or structure present in this project.
+
+## **CONTACT**
+
+For any inquiries or to get in touch, you can send an email to [darkness.within.guildeu@gmail.com](mailto:darkness.within.guildeu@gmail.com).
