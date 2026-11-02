@@ -1,6 +1,6 @@
 # Darkness Within Azeroth Adventures
 
-Welcome to the official web platform for **Darkness Within Azeroth Adventures**, a community site dedicated to the *Darkness Within* World of Warcraft guild.
+Welcome to the official web platform for **Darkness Within Azeroth Adventures**, a community site dedicated to the *Darkness Within* World of Warcraft EU-Haomarush guild.
 
 ## 🌌 Overview
 
