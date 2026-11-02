@@ -22,3 +22,6 @@ This website serves as an interactive photostory capturing our guild's epic adve
 - **Goodmountain Font**: Custom typography created by [Hermann S Designs](https://github.com/Hermann-S-Designs/Goodmountain).
 
 ---
+## **CONTACT**
+
+For any inquiries or to get in touch, you can send an email to [darkness.within.guildeu@gmail.com](mailto:darkness.within.guildeu@gmail.com).
