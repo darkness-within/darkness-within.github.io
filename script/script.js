@@ -10,10 +10,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // --- Α. SCROLL RESTORATION & TOP RESET SAFETY ---
     window.scrollTo(0, 0);
-    window.addEventListener('beforeunload', () => {
+
+    // Αποφυγή scroll στην κορυφή αν ο χρήστης πατήσει mailto: ή εξωτερικό σύνδεσμο
+    window.addEventListener('beforeunload', (event) => {
+        if (document.activeElement && document.activeElement.tagName === 'A') {
+            const href = document.activeElement.getAttribute('href');
+            if (href && (href.startsWith('mailto:') || href.startsWith('tel:'))) {
+                return; // Μην κάνεις scroll αν είναι mailto link
+            }
+        }
         window.scrollTo(0, 0);
     });
-
     // --- Β. INTERSECTION OBSERVER (Fade-In) ---
     const observerOptions = {
         threshold: 0.15,
