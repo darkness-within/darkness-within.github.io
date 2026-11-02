@@ -1,6 +1,7 @@
 CUSTOM ALL RIGHTS RESERVED LICENSE
 
 Copyright (c) 2026 Darkness Within Guild & Web Developer. All Rights Reserved.
+
 Website: https://darkness-within.github.io
 
 1. CODE & ARCHITECTURE OWNERSHIP
