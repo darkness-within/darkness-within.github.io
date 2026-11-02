@@ -37,6 +37,7 @@ written consent from Guild management.
 **RESTRICTIONS**
 
 You may not:
-a) Use any part of this repository for public or commercial templates.
-b) Re-host or mirror the website assets without authorization.
-c) Claim ownership over any code, media, or structure present in this project.
+
+- Use any part of this repository for public or commercial templates.
+- Re-host or mirror the website assets without authorization.
+- Claim ownership over any code, media, or structure present in this project.
