@@ -18,7 +18,7 @@ This website serves as an interactive photostory capturing our guild's epic adve
 
 - **HTML5**: Semantic and responsive page structure.
 - **CSS3**: Custom CSS styling utilizing CSS Variables (`:root`) and dynamic flex layouts.
-- - **JavaScript**: Interactive UI elements, dynamic gallery behavior, and smooth user navigation.
+- **JavaScript**: Interactive UI elements, dynamic gallery behavior, and smooth user navigation.
 - **Goodmountain Font**: Custom typography created by [Hermann S Designs](https://github.com/Hermann-S-Designs/Goodmountain).
 
 ---
